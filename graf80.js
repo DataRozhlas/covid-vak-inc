@@ -77,6 +77,7 @@
             color: '#de2d26',
           },
         },
+        max: 300,
       }, {
         title: {
           text: 'očkovaných',

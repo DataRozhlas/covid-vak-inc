@@ -1,5 +1,5 @@
 (function () {
-  const population = 1008297; // lidi 70 - 79 dle ČSÚ
+  const population = 1038378; // lidi 70 - 79 dle ČSÚ
   Promise.all([
     fetch('https://data.irozhlas.cz/covid-uzis/osoby5.json'), // nakažení v řletých intervalech
     fetch('https://data.irozhlas.cz/covid-uzis/vak_vek_prvni.json'), // vakcinovaní první dávkou

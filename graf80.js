@@ -1,11 +1,13 @@
 (function () {
   const population = 447526; // lidi 80+ dle ČSÚ
   Promise.all([
-    fetch('https://data.irozhlas.cz/covid-uzis/osoby5.json'), // nakažení v řletých intervalech
+    fetch('https://data.irozhlas.cz/covid-uzis/osoby5.json'), // nakažení v 5letých intervalech
     fetch('https://data.irozhlas.cz/covid-uzis/vak_vek_prvni.json'), // vakcinovaní první dávkou
   ]).then((resps) => Promise.all(resps.map((resp) => resp.json()))).then((d) => {
     const infected = d[0];
     const vaccinated = d[1];
+    infected.sort((a, b) => Date.parse(a.ind) - Date.parse(b.ind));
+    vaccinated.sort((a, b) => Date.parse(a.ind) - Date.parse(b.ind));
     // nakažení za 21 dní včetně
     const inf_srs = [];
     infected.forEach((rec, i) => {
